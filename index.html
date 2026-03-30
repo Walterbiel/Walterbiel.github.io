@@ -17,6 +17,7 @@
       --cyan:      #00d4ff;
       --amber:     #ffb800;
       --red:       #ff4560;
+      --purple:    #b48eff;
       --text:      #c8d0dc;
       --text-dim:  #5a6478;
       --text-mid:  #8899aa;
@@ -35,52 +36,60 @@
       overflow-x: hidden;
     }
 
+    /* scanlines */
     body::before {
       content: '';
       position: fixed; inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.055) 2px, rgba(0,0,0,0.055) 4px);
       pointer-events: none; z-index: 9999;
     }
 
-    /* NAV */
+    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem; height: 52px;
-      background: rgba(10,12,15,0.94);
-      backdrop-filter: blur(14px);
+      background: rgba(10,12,15,0.95);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { color: var(--green); font-weight: 700; font-size: 13px; letter-spacing: .05em; }
     .nav-logo span { color: var(--text-dim); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 12px; letter-spacing: .08em; transition: color .2s; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
     .nav-links a:hover { color: var(--green); }
 
-    /* HERO */
+    /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 110px 3rem 5rem;
+      padding: 120px 3rem 5rem;
       position: relative; overflow: hidden;
+      max-width: 100%;
     }
     .hero-grid {
       position: absolute; inset: 0;
       background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
       background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
-      opacity: .35;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%);
+      opacity: .3;
     }
     .hero-glow {
-      position: absolute; width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,136,.07) 0%, transparent 70%);
-      top: -150px; left: -150px; pointer-events: none;
+      position: absolute; width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,136,.055) 0%, transparent 70%);
+      top: -200px; left: -200px; pointer-events: none;
     }
-    .prompt { color: var(--text-dim); font-size: 12px; margin-bottom: .7rem; letter-spacing: .05em; }
+    .hero-glow2 {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,.04) 0%, transparent 70%);
+      bottom: -100px; right: 5%; pointer-events: none;
+    }
+
+    .prompt { color: var(--text-dim); font-size: 12px; margin-bottom: .8rem; letter-spacing: .04em; }
     .prompt .ps { color: var(--green); }
     .prompt .path { color: var(--cyan); }
 
-    h1 { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: .5rem; letter-spacing: -.02em; }
+    h1 { font-size: clamp(2.6rem, 6vw, 5.2rem); font-weight: 700; line-height: 1.08; margin-bottom: .5rem; letter-spacing: -.025em; }
     h1 .name { color: #fff; }
     .cursor {
       display: inline-block; width: 4px; height: .9em;
@@ -89,145 +98,192 @@
     }
     @keyframes blink { 50% { opacity: 0; } }
 
-    .hero-role { color: var(--green); font-size: .95rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.4rem; }
-    .hero-desc { max-width: 580px; color: var(--text-mid); font-size: 13px; line-height: 1.9; margin-bottom: 2.5rem; }
+    .hero-role { color: var(--green); font-size: .9rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1.4rem; }
+
+    .hero-desc { max-width: 620px; color: var(--text-mid); font-size: 13px; line-height: 1.95; margin-bottom: 2.4rem; }
     .hero-desc .hl { color: var(--cyan); }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.8rem; }
-    .badge { padding: 4px 12px; border: 1px solid var(--border); border-radius: 2px; font-size: 11px; color: var(--text-mid); background: var(--bg2); letter-spacing: .06em; }
+
+    .hero-badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.6rem; }
+    .badge { padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px; font-size: 11px; color: var(--text-mid); background: var(--bg2); letter-spacing: .05em; }
     .badge.g { border-color: rgba(0,255,136,.3); color: var(--green); background: rgba(0,255,136,.05); }
     .badge.c { border-color: rgba(0,212,255,.3); color: var(--cyan); background: rgba(0,212,255,.05); }
     .badge.a { border-color: rgba(255,184,0,.3); color: var(--amber); background: rgba(255,184,0,.05); }
+    .badge.p { border-color: rgba(180,142,255,.3); color: var(--purple); background: rgba(180,142,255,.05); }
+
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-decoration: none; border-radius: 2px; transition: all .2s; cursor: pointer; border: none; }
     .btn-primary { background: var(--green); color: #000; }
-    .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,255,136,.2); }
     .btn-ghost { background: transparent; color: var(--text-mid); border: 1px solid var(--border); }
     .btn-ghost:hover { border-color: var(--green); color: var(--green); transform: translateY(-1px); }
 
-    /* SECTION */
+    /* ─── SECTION COMMON ─── */
     section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 11px; color: var(--green); letter-spacing: .2em; text-transform: uppercase; margin-bottom: .5rem; }
-    .section-label::before { content: '// '; color: var(--text-dim); }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #fff; margin-bottom: .6rem; }
-    .section-sub { color: var(--text-mid); font-size: 13px; margin-bottom: 3rem; max-width: 540px; }
+    .sl { font-size: 11px; color: var(--green); letter-spacing: .2em; text-transform: uppercase; margin-bottom: .5rem; }
+    .sl::before { content: '// '; color: var(--text-dim); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; color: #fff; margin-bottom: .6rem; }
+    .ssub { color: var(--text-mid); font-size: 13px; margin-bottom: 3rem; max-width: 560px; }
     .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-    /* EXPERIENCE */
-    .exp-track {
+    /* ─── EXPERIENCE TIMELINE ─── */
+    .exp-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1px;
       border: 1px solid var(--border);
       background: var(--border);
+      margin-bottom: 3rem;
     }
 
     .exp-card {
       background: var(--bg2);
-      padding: 2rem 1rem 1.6rem;
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+      padding: 1.8rem 1rem 1.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: .9rem;
       transition: background .2s;
-      position: relative; text-align: center; min-width: 0;
+      position: relative; text-align: center;
+      cursor: default;
     }
     .exp-card:hover { background: var(--bg3); }
     .exp-card::after {
       content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 0; height: 2px; background: var(--green); transition: width .3s ease;
+      width: 0; height: 2px; background: var(--green); transition: width .35s ease;
     }
-    .exp-card:hover::after { width: 60%; }
+    .exp-card:hover::after { width: 70%; }
 
     .logo-box {
-      width: 90px; height: 44px;
+      width: 92px; height: 44px;
       display: flex; align-items: center; justify-content: center;
-      filter: grayscale(1) brightness(1.6);
-      transition: filter .3s;
+      filter: grayscale(1) brightness(1.5) opacity(.7);
+      transition: filter .35s;
     }
-    .exp-card:hover .logo-box { filter: grayscale(0) brightness(1); }
-    .logo-box img { max-width: 88px; max-height: 40px; object-fit: contain; display: block; }
+    .exp-card:hover .logo-box { filter: grayscale(0) brightness(1) opacity(1); }
+    .logo-box svg { width: 92px; height: 44px; }
 
-    /* SVG inline logos — garantia sem dependência de URL externa */
-    .logo-svg { width: 88px; height: 40px; }
+    .exp-co { font-size: 11px; color: var(--text-dim); letter-spacing: .07em; text-transform: uppercase; }
+    .exp-role { font-size: 10px; color: var(--green); letter-spacing: .04em; margin-top: 1px; }
+    .exp-period { font-size: 10px; color: var(--text-dim); }
 
-    .exp-company { font-size: 11px; color: var(--text-dim); letter-spacing: .07em; text-transform: uppercase; }
-    .exp-role-tag { font-size: 10px; color: var(--green); letter-spacing: .05em; }
+    /* timeline row below the cards */
+    .exp-timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      top: 11px; left: 0; right: 0;
+      height: 1px;
+      background: var(--border);
+    }
+    .exp-tl-item {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 0 4px 12px;
+      font-size: 10px; color: var(--text-dim); letter-spacing: .04em;
+      position: relative;
+    }
+    .exp-tl-item::before {
+      content: '';
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border);
+      border: 1.5px solid var(--text-dim);
+      margin-bottom: 6px; margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .exp-tl-item.current::before { background: var(--green); border-color: var(--green); box-shadow: 0 0 6px var(--green); }
 
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; border: 1px solid var(--border); background: var(--border); }
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1px; border: 1px solid var(--border); background: var(--border);
+    }
     .project-card { background: var(--bg2); padding: 1.8rem; transition: background .2s; position: relative; overflow: hidden; }
     .project-card:hover { background: var(--bg3); }
     .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
     .project-card:hover::before { transform: scaleX(1); }
-    .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .8rem; }
+    .card-hd { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .8rem; }
     .card-icon { font-size: 1.4rem; }
-    .card-links { display: flex; gap: .6rem; }
-    .card-links a { color: var(--text-dim); text-decoration: none; font-size: 11px; letter-spacing: .05em; transition: color .2s; padding: 3px 8px; border: 1px solid transparent; }
+    .card-links { display: flex; gap: .5rem; }
+    .card-links a { color: var(--text-dim); text-decoration: none; font-size: 11px; letter-spacing: .04em; transition: color .2s; padding: 3px 8px; border: 1px solid transparent; }
     .card-links a:hover { color: var(--green); border-color: rgba(0,255,136,.3); }
     .card-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: .5rem; }
-    .card-desc { color: var(--text-mid); font-size: 12px; line-height: 1.8; margin-bottom: 1.2rem; }
+    .card-desc { color: var(--text-mid); font-size: 12px; line-height: 1.85; margin-bottom: 1.2rem; }
     .card-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag { font-size: 10px; padding: 2px 8px; border-radius: 2px; letter-spacing: .06em; }
+    .tag { font-size: 10px; padding: 2px 8px; border-radius: 2px; letter-spacing: .05em; }
     .tg { background: rgba(0,255,136,.08); color: var(--green); }
     .tc { background: rgba(0,212,255,.08); color: var(--cyan); }
     .ta { background: rgba(255,184,0,.08); color: var(--amber); }
     .tr { background: rgba(255,69,96,.08); color: var(--red); }
+    .tp2{ background: rgba(180,142,255,.08); color: var(--purple); }
     .tm { background: rgba(255,255,255,.05); color: var(--text-mid); }
 
-    /* STACK */
-    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border); background: var(--border); }
-    .stack-item { background: var(--bg2); padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1rem; transition: background .2s; }
+    /* ─── STACK ─── */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 1px; border: 1px solid var(--border); background: var(--border); }
+    .stack-item { background: var(--bg2); padding: 1.3rem 1.5rem; display: flex; align-items: center; gap: 1rem; transition: background .2s; }
     .stack-item:hover { background: var(--bg3); }
-    .s-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .s-name { font-size: 13px; font-weight: 600; color: #fff; }
-    .s-level { font-size: 10px; color: var(--text-dim); letter-spacing: .06em; }
-    .s-bar { height: 2px; background: var(--border); border-radius: 1px; margin-top: 6px; overflow: hidden; }
-    .s-fill { height: 100%; border-radius: 1px; }
+    .si { font-size: 1.4rem; flex-shrink: 0; }
+    .sname { font-size: 13px; font-weight: 600; color: #fff; }
+    .slevel { font-size: 10px; color: var(--text-dim); letter-spacing: .05em; }
+    .sbar { height: 2px; background: var(--border); border-radius: 1px; margin-top: 5px; overflow: hidden; }
+    .sfill { height: 100%; border-radius: 1px; }
 
-    /* TERMINAL */
-    .terminal { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; max-width: 700px; }
+    /* ─── TERMINAL ─── */
+    .terminal { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; max-width: 740px; }
     .t-bar { background: var(--bg3); padding: 10px 14px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--border); }
     .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dr { background: #ff5f57; } .da { background: #febc2e; } .dg { background: #28c840; }
-    .t-title { flex: 1; text-align: center; font-size: 11px; color: var(--text-dim); }
-    .t-body { padding: 1.4rem 1.6rem; font-size: 12px; line-height: 2; }
-    .tl { display: block; }
-    .tp { color: var(--green); }
-    .tcmd { color: var(--cyan); }
-    .tout { color: var(--text-mid); padding-left: 1rem; display: block; }
-    .tk { color: var(--amber); }
-    .tv { color: var(--text); }
-    .tcm { color: var(--text-dim); }
+    .dr{background:#ff5f57;} .da{background:#febc2e;} .dg{background:#28c840;}
+    .t-ttl { flex: 1; text-align: center; font-size: 11px; color: var(--text-dim); }
+    .t-body { padding: 1.4rem 1.6rem; font-size: 12px; line-height: 2.1; }
+    .tl  { display: block; }
+    .tp  { color: var(--green); }
+    .tcm { color: var(--cyan); }
+    .to  { color: var(--text-mid); padding-left: 1rem; display: block; }
+    .tk  { color: var(--amber); }
+    .tv  { color: var(--text); }
+    .tcmt{ color: var(--text-dim); }
 
-    /* LINKS */
+    /* ─── LINKS ─── */
     .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
     .link-card { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--bg2); border: 1px solid var(--border); text-decoration: none; transition: all .2s; border-radius: 2px; }
-    .link-card:hover { border-color: var(--green); background: var(--bg3); transform: translateY(-2px); }
-    .le { font-size: 1.6rem; flex-shrink: 0; }
+    .link-card:hover { border-color: var(--green); background: var(--bg3); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,255,136,.07); }
+    .le { font-size: 1.5rem; flex-shrink: 0; }
     .ln { font-size: 13px; font-weight: 600; color: #fff; }
-    .lu { font-size: 11px; color: var(--text-dim); }
+    .lu { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
 
-    /* FOOTER */
+    /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 11px; color: var(--text-dim); }
     footer a { color: var(--green); text-decoration: none; }
 
-    /* FADE */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    /* ─── FADE ─── */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* RESPONSIVE */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      .exp-track { grid-template-columns: repeat(3, 1fr); }
+      .exp-grid, .exp-timeline { grid-template-columns: repeat(3, 1fr); }
+      .exp-card:nth-child(n+4) { display: none; }
+      .exp-tl-item:nth-child(n+4) { display: none; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       nav { padding: 0 1rem; }
       .nav-links { gap: 1rem; }
+      .nav-links li:nth-child(n+4) { display: none; }
       #hero, section { padding-left: 1.2rem; padding-right: 1.2rem; }
       footer { padding: 1.5rem 1.2rem; }
-      .exp-track { grid-template-columns: repeat(2, 1fr); }
+      .exp-grid, .exp-timeline { grid-template-columns: repeat(2, 1fr); }
+      .exp-card:nth-child(n+3) { display: none; }
+      .exp-tl-item:nth-child(n+3) { display: none; }
       .projects-grid, .stack-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo"><span>~/</span>waltergonzaga</div>
   <ul class="nav-links">
@@ -240,194 +296,240 @@
   </ul>
 </nav>
 
-<!-- HERO -->
-<section id="hero" style="max-width:100%;padding-top:110px;">
+<!-- ══ HERO ══ -->
+<section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
 
   <div class="prompt">
     <span class="ps">waltergonzaga@portfolio</span>:<span class="path">~/data-engineering</span>$
   </div>
   <h1><span class="name">Walter Gonzaga</span><span class="cursor"></span></h1>
-  <div class="hero-role">Data Engineer &amp; Analytics</div>
+  <div class="hero-role">Data Engineer · Analytics · Azure Cloud · AI</div>
+
   <p class="hero-desc">
-    Construindo pipelines de dados robustos na <span class="hl">Azure</span>, transformando dados brutos em ativos estratégicos com <span class="hl">dbt</span>, <span class="hl">Synapse</span> e <span class="hl">Python</span>. Passagem por Allianz, Nestlé, Ingredion, Ethimos e Buonny — foco em arquiteturas escaláveis e entrega de valor real.
+    Especialista em <span class="hl">engenharia e arquitetura de dados</span> na Azure. Criando pipelines robustos, modelagens dimensionais e soluções de <span class="hl">ML &amp; IA</span> que reduzem custos e geram decisões melhores. Fundador da <span class="hl">WGG Digital Solutions</span> e professor de Data Analytics.
   </p>
+
   <div class="hero-badges">
     <span class="badge g">Azure Synapse</span>
     <span class="badge g">ADLS Gen2</span>
-    <span class="badge c">dbt</span>
+    <span class="badge g">Data Factory</span>
+    <span class="badge c">dbt Core</span>
     <span class="badge c">Python</span>
-    <span class="badge a">SQL</span>
-    <span class="badge a">Spark</span>
-    <span class="badge">Data Lake</span>
-    <span class="badge">ETL / ELT</span>
+    <span class="badge c">PySpark</span>
+    <span class="badge a">SQL / T-SQL</span>
+    <span class="badge a">Power BI</span>
+    <span class="badge p">Airflow</span>
+    <span class="badge p">Machine Learning</span>
+    <span class="badge">CI/CD</span>
+    <span class="badge">Docker</span>
+    <span class="badge">Databricks</span>
   </div>
+
   <div class="hero-ctas">
     <a href="#projects" class="btn btn-primary">▶ ver projetos</a>
     <a href="https://github.com/Walterbiel" target="_blank" class="btn btn-ghost">⌥ github</a>
+    <a href="https://www.linkedin.com/in/waltergonzaga" target="_blank" class="btn btn-ghost">in linkedin</a>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- EXPERIENCE -->
+<!-- ══ EXPERIENCE ══ -->
 <section id="experience">
-  <p class="section-label">experiência</p>
-  <h2>Empresas</h2>
-  <p class="section-sub">Trajetória por organizações nacionais e multinacionais de grande porte.</p>
+  <p class="sl">experiência</p>
+  <h2>Trajetória Profissional</h2>
+  <p class="ssub">Passagem por multinacionais, fintechs e empreendedorismo — sempre com dados no centro.</p>
 
-  <div class="exp-track fade-in">
+  <!-- Cards com logos -->
+  <div class="exp-grid fade-in">
 
-    <!-- ALLIANZ -->
+    <!-- Allianz — atual -->
     <div class="exp-card">
       <div class="logo-box">
-        <!-- Allianz SVG inline -->
-        <svg class="logo-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="200" height="80" fill="none"/>
-          <!-- Eagle symbol simplified -->
-          <ellipse cx="34" cy="40" rx="22" ry="26" fill="#003781" opacity=".9"/>
-          <ellipse cx="34" cy="40" rx="14" ry="18" fill="#0038A8"/>
-          <path d="M22 28 Q34 16 46 28 Q38 36 34 40 Q30 36 22 28Z" fill="#6AADE4" opacity=".7"/>
-          <text x="64" y="46" font-family="Arial,sans-serif" font-weight="700" font-size="22" fill="#003781" letter-spacing="-0.5">Allianz</text>
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="30" cy="40" rx="20" ry="26" fill="#003781"/>
+          <ellipse cx="30" cy="40" rx="12" ry="18" fill="#0038A8" opacity=".7"/>
+          <path d="M18 26 Q30 14 42 26 Q35 34 30 40 Q25 34 18 26Z" fill="#6AADE4" opacity=".6"/>
+          <text x="58" y="46" font-family="Arial,sans-serif" font-weight="700" font-size="22" fill="#003781">Allianz</text>
         </svg>
       </div>
-      <div class="exp-company">Allianz</div>
-      <div class="exp-role-tag">Data &amp; Analytics</div>
+      <div class="exp-co">Allianz</div>
+      <div class="exp-role">Sr. Data Architect</div>
+      <div class="exp-period">2025 → atual</div>
     </div>
 
-    <!-- NESTLÉ -->
+    <!-- Ingredion -->
     <div class="exp-card">
       <div class="logo-box">
-        <svg class="logo-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="200" height="80" fill="none"/>
-          <!-- Nest + bird icon simplified -->
-          <g transform="translate(8,8)">
-            <ellipse cx="28" cy="48" rx="22" ry="8" fill="#7B3F00" opacity=".7"/>
-            <path d="M14 46 Q28 28 42 46" stroke="#7B3F00" stroke-width="2.5" fill="none"/>
-            <circle cx="28" cy="20" r="7" fill="#7B3F00" opacity=".8"/>
-            <path d="M28 27 L22 38 L34 38 Z" fill="#7B3F00" opacity=".6"/>
-          </g>
-          <text x="68" y="48" font-family="Arial,sans-serif" font-weight="700" font-size="26" fill="#7B3F00" letter-spacing="-0.5">Nestlé</text>
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="14" width="34" height="52" rx="3" fill="#C8102E"/>
+          <text x="6"  y="32" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" fill="#fff">INGRE</text>
+          <text x="6"  y="44" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" fill="#fff">DION</text>
+          <text x="50" y="47" font-family="Arial,sans-serif" font-weight="700" font-size="19" fill="#C8102E" letter-spacing="-.3">Ingredion</text>
         </svg>
       </div>
-      <div class="exp-company">Nestlé</div>
-      <div class="exp-role-tag">Data Engineering</div>
+      <div class="exp-co">Ingredion</div>
+      <div class="exp-role">Data Lead</div>
+      <div class="exp-period">2021 – 2025</div>
     </div>
 
-    <!-- INGREDION -->
+    <!-- Nestlé -->
     <div class="exp-card">
       <div class="logo-box">
-        <svg class="logo-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="200" height="80" fill="none"/>
-          <rect x="8" y="16" width="36" height="48" rx="3" fill="#C8102E" opacity=".9"/>
-          <text x="8" y="35" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#fff">INGRE</text>
-          <text x="8" y="48" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#fff">DION</text>
-          <text x="52" y="47" font-family="Arial,sans-serif" font-weight="700" font-size="20" fill="#C8102E" letter-spacing="-0.3">Ingredion</text>
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="18" r="7" fill="#7B3F00" opacity=".85"/>
+          <path d="M26 25 L18 40 L34 40 Z" fill="#7B3F00" opacity=".6"/>
+          <ellipse cx="26" cy="50" rx="20" ry="8" fill="#7B3F00" opacity=".5"/>
+          <path d="M12 46 Q26 30 40 46" stroke="#7B3F00" stroke-width="2.5" fill="none"/>
+          <text x="54" y="48" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#7B3F00">Nestlé</text>
         </svg>
       </div>
-      <div class="exp-company">Ingredion</div>
-      <div class="exp-role-tag">Data Engineering</div>
+      <div class="exp-co">Nestlé</div>
+      <div class="exp-role">Sr. Data Consultant</div>
+      <div class="exp-period">out – dez 2021</div>
     </div>
 
-    <!-- ETHIMOS -->
+    <!-- Ethimos -->
     <div class="exp-card">
       <div class="logo-box">
-        <svg class="logo-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="200" height="80" fill="none"/>
-          <polygon points="28,12 46,40 28,68 10,40" fill="none" stroke="#00B4D8" stroke-width="3"/>
-          <polygon points="28,22 38,40 28,58 18,40" fill="#00B4D8" opacity=".25"/>
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="28,10 48,40 28,70 8,40" fill="none" stroke="#00B4D8" stroke-width="2.5"/>
+          <polygon points="28,22 40,40 28,58 16,40" fill="#00B4D8" opacity=".18"/>
           <circle cx="28" cy="40" r="5" fill="#00B4D8"/>
-          <text x="56" y="38" font-family="Arial,sans-serif" font-weight="700" font-size="16" fill="#00B4D8">ETHIMOS</text>
-          <text x="56" y="55" font-family="Arial,sans-serif" font-size="10" fill="#00B4D8" opacity=".7" letter-spacing="1">INVESTIMENTOS</text>
+          <text x="58" y="37" font-family="Arial,sans-serif" font-weight="700" font-size="15" fill="#00B4D8">ETHIMOS</text>
+          <text x="58" y="54" font-family="Arial,sans-serif" font-size="9" fill="#00B4D8" opacity=".65" letter-spacing="1">INVESTIMENTOS</text>
         </svg>
       </div>
-      <div class="exp-company">Ethimos</div>
-      <div class="exp-role-tag">Analytics</div>
+      <div class="exp-co">Ethimos</div>
+      <div class="exp-role">Data Analyst</div>
+      <div class="exp-period">abr – set 2021</div>
     </div>
 
-    <!-- BUONNY -->
+    <!-- Buonny -->
     <div class="exp-card">
       <div class="logo-box">
-        <svg class="logo-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="200" height="80" fill="none"/>
-          <path d="M10 20 Q10 10 20 10 L36 10 Q50 10 50 24 Q50 32 42 35 Q52 38 52 50 Q52 68 36 68 L20 68 Q10 68 10 58 Z" fill="#E8A000" opacity=".9"/>
-          <text x="62" y="47" font-family="Arial,sans-serif" font-weight="700" font-size="22" fill="#E8A000" letter-spacing="-0.3">Buonny</text>
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 18 Q10 10 20 10 L34 10 Q48 10 48 24 Q48 32 40 35 Q50 38 50 50 Q50 66 34 66 L20 66 Q10 66 10 58 Z" fill="#E8A000" opacity=".9"/>
+          <text x="60" y="47" font-family="Arial,sans-serif" font-weight="700" font-size="21" fill="#E8A000" letter-spacing="-.2">Buonny</text>
         </svg>
       </div>
-      <div class="exp-company">Buonny</div>
-      <div class="exp-role-tag">Data Engineering</div>
+      <div class="exp-co">Buonny</div>
+      <div class="exp-role">BI &amp; Process Intern</div>
+      <div class="exp-period">2017 – 2018</div>
     </div>
 
   </div>
+
+  <!-- Timeline de pontos -->
+  <div class="exp-timeline">
+    <div class="exp-tl-item current">2025 → hoje</div>
+    <div class="exp-tl-item">2021 – 2025</div>
+    <div class="exp-tl-item">out 2021</div>
+    <div class="exp-tl-item">abr 2021</div>
+    <div class="exp-tl-item">2017 – 2018</div>
+  </div>
+
+  <!-- WGG card separado — founder -->
+  <div style="margin-top:1px;border:1px solid var(--border);background:var(--bg2);padding:1.5rem 1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1rem;">
+    <div style="display:flex;align-items:center;gap:1.4rem;">
+      <div style="width:44px;height:44px;border-radius:3px;background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--green);">WGG</div>
+      <div>
+        <div style="font-weight:700;color:#fff;font-size:14px;">WGG Digital Solutions</div>
+        <div style="font-size:11px;color:var(--green);">Founder &amp; Data Architect</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);">dez 2021 → presente · <a href="https://www.wggsolutions.com" target="_blank" style="color:var(--cyan);text-decoration:none;">wggsolutions.com ↗</a></div>
+  </div>
+
+  <!-- Professor card -->
+  <div style="margin-top:1px;border:1px solid var(--border);background:var(--bg2);padding:1.5rem 1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <div style="display:flex;align-items:center;gap:1.4rem;">
+      <div style="width:44px;height:44px;border-radius:3px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.25);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🎓</div>
+      <div>
+        <div style="font-weight:700;color:#fff;font-size:14px;">Universidade dos Dados</div>
+        <div style="font-size:11px;color:var(--cyan);">Data Analytics &amp; Engineering Teacher</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);">jul 2024 – dez 2025</div>
+  </div>
+
 </section>
 
 <hr class="divider">
 
-<!-- PROJECTS -->
+<!-- ══ PROJECTS ══ -->
 <section id="projects">
-  <p class="section-label">projetos</p>
+  <p class="sl">projetos</p>
   <h2>Portfólio de Projetos</h2>
-  <p class="section-sub">Projetos práticos de engenharia de dados — pipelines, transformações e arquiteturas em produção.</p>
+  <p class="ssub">Projetos práticos de engenharia de dados — pipelines, DWH, transformações e arquiteturas em produção.</p>
 
   <div class="projects-grid fade-in">
 
+    <!-- Projeto 01 — real -->
     <div class="project-card">
-      <div class="card-header">
-        <span class="card-icon">🗄️</span>
+      <div class="card-hd">
+        <span class="card-icon">🏪</span>
         <div class="card-links">
-          <a href="https://github.com/Walterbiel/projeto_pratico_01_manual_eng_de_dados" target="_blank">repo ↗</a>
-          <a href="https://walterbiel.github.io/projeto_pratico_01_manual_eng_de_dados" target="_blank">demo ↗</a>
+          <a href="https://github.com/Walterbiel/RetailCorp-Corporate-Data-Warehouse" target="_blank">repo ↗</a>
+          <a href="https://walterbiel.github.io/RetailCorp-Corporate-Data-Warehouse/" target="_blank">demo ↗</a>
         </div>
       </div>
-      <div class="card-title">projeto_pratico_01_eng_de_dados</div>
-      <div class="card-desc">Pipeline de ingestão e transformação com dbt + Azure Synapse Analytics. Modelagem dimensional e cargas incrementais automatizadas.</div>
+      <div class="card-title">RetailCorp Corporate Data Warehouse</div>
+      <div class="card-desc">Data Warehouse corporativo para varejo com modelagem Star Schema, pipeline de ingestão, camadas bronze/silver/gold e dashboards analíticos.</div>
       <div class="card-tags">
         <span class="tag tg">dbt</span>
         <span class="tag tc">Azure Synapse</span>
-        <span class="tag ta">SQL</span>
-        <span class="tag tm">Python</span>
+        <span class="tag ta">SQL / T-SQL</span>
+        <span class="tag tg">Python</span>
+        <span class="tag tm">Star Schema</span>
       </div>
     </div>
 
+    <!-- Projeto 02 — placeholder -->
     <div class="project-card">
-      <div class="card-header">
+      <div class="card-hd">
         <span class="card-icon">☁️</span>
         <div class="card-links">
           <a href="https://github.com/Walterbiel" target="_blank">repo ↗</a>
         </div>
       </div>
-      <div class="card-title">azure-data-lake-pipelines</div>
-      <div class="card-desc">Arquitetura de Data Lake em camadas (bronze/silver/gold) no ADLS Gen2 com orquestração via Synapse Pipelines e logging para ServiceNow.</div>
+      <div class="card-title">Azure Data Lake Pipelines</div>
+      <div class="card-desc">Arquitetura medallion (bronze/silver/gold) no ADLS Gen2 com orquestração via Synapse Pipelines, versionamento dbt e logging automático.</div>
       <div class="card-tags">
         <span class="tag tc">ADLS Gen2</span>
         <span class="tag tc">Synapse Pipelines</span>
-        <span class="tag tg">Python</span>
-        <span class="tag tm">JSON</span>
+        <span class="tag tg">PySpark</span>
+        <span class="tag tp2">Airflow</span>
       </div>
     </div>
 
+    <!-- Projeto 03 — placeholder -->
     <div class="project-card">
-      <div class="card-header">
-        <span class="card-icon">📊</span>
+      <div class="card-hd">
+        <span class="card-icon">🤖</span>
         <div class="card-links">
           <a href="https://github.com/Walterbiel" target="_blank">repo ↗</a>
         </div>
       </div>
-      <div class="card-title">analytics-dwh-modeling</div>
-      <div class="card-desc">Modelagem de Data Warehouse com Star Schema para analytics de negócio. Otimização de queries e materialização incremental com dbt.</div>
+      <div class="card-title">ML &amp; IA — Data Science Pipeline</div>
+      <div class="card-desc">Pipeline end-to-end de ciência de dados com feature engineering, treinamento de modelos e deploy automatizado via CI/CD na Azure.</div>
       <div class="card-tags">
-        <span class="tag ta">SQL</span>
-        <span class="tag tg">dbt</span>
-        <span class="tag tm">Star Schema</span>
-        <span class="tag tr">DWH</span>
+        <span class="tag tg">Python</span>
+        <span class="tag tp2">Machine Learning</span>
+        <span class="tag tc">Azure ML</span>
+        <span class="tag tm">CI/CD</span>
+        <span class="tag tm">Docker</span>
       </div>
     </div>
 
+    <!-- Slot vazio -->
     <div class="project-card" style="display:flex;align-items:center;justify-content:center;min-height:180px;background:transparent;border:1px dashed var(--border);">
       <div style="text-align:center;color:var(--text-dim);">
         <div style="font-size:2rem;margin-bottom:.5rem;">+</div>
-        <div style="font-size:12px;letter-spacing:.08em;">em breve</div>
+        <div style="font-size:11px;letter-spacing:.1em;">em breve</div>
       </div>
     </div>
 
@@ -436,104 +538,146 @@
 
 <hr class="divider">
 
-<!-- STACK -->
+<!-- ══ STACK ══ -->
 <section id="stack">
-  <p class="section-label">stack</p>
+  <p class="sl">stack</p>
   <h2>Tecnologias</h2>
-  <p class="section-sub">Ferramentas e plataformas do dia a dia em projetos de dados.</p>
+  <p class="ssub">Ferramentas e plataformas do dia a dia — de pipelines a modelos de ML.</p>
 
   <div class="stack-grid fade-in">
     <div class="stack-item">
-      <div class="s-icon">🔷</div>
-      <div><div class="s-name">Azure Synapse</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:88%;background:var(--cyan);"></div></div></div>
+      <div class="si">🔷</div>
+      <div><div class="sname">Azure Synapse</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:90%;background:var(--cyan);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">🟢</div>
-      <div><div class="s-name">dbt</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:85%;background:var(--green);"></div></div></div>
+      <div class="si">🟢</div>
+      <div><div class="sname">dbt Core</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:88%;background:var(--green);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">🐍</div>
-      <div><div class="s-name">Python</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:82%;background:var(--green);"></div></div></div>
+      <div class="si">🐍</div>
+      <div><div class="sname">Python</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:88%;background:var(--green);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">🗃️</div>
-      <div><div class="s-name">SQL / T-SQL</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:90%;background:var(--amber);"></div></div></div>
+      <div class="si">⚡</div>
+      <div><div class="sname">PySpark</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:82%;background:var(--red);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">🏞️</div>
-      <div><div class="s-name">ADLS Gen2</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:80%;background:var(--cyan);"></div></div></div>
+      <div class="si">🗃️</div>
+      <div><div class="sname">SQL / T-SQL</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:92%;background:var(--amber);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">⚡</div>
-      <div><div class="s-name">Apache Spark</div><div class="s-level">intermediário</div><div class="s-bar"><div class="s-fill" style="width:65%;background:var(--red);"></div></div></div>
+      <div class="si">🏞️</div>
+      <div><div class="sname">ADLS Gen2</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:85%;background:var(--cyan);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">🔀</div>
-      <div><div class="s-name">Synapse Pipelines</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:78%;background:var(--cyan);"></div></div></div>
+      <div class="si">📊</div>
+      <div><div class="sname">Power BI</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:88%;background:var(--amber);"></div></div></div>
     </div>
     <div class="stack-item">
-      <div class="s-icon">🐙</div>
-      <div><div class="s-name">Git / GitHub</div><div class="s-level">avançado</div><div class="s-bar"><div class="s-fill" style="width:85%;background:var(--text-mid);"></div></div></div>
+      <div class="si">🌀</div>
+      <div><div class="sname">Apache Airflow</div><div class="slevel">intermediário</div><div class="sbar"><div class="sfill" style="width:68%;background:var(--purple);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">🔥</div>
+      <div><div class="sname">Databricks</div><div class="slevel">intermediário</div><div class="sbar"><div class="sfill" style="width:70%;background:var(--red);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">🏭</div>
+      <div><div class="sname">Data Factory</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:84%;background:var(--cyan);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">🤖</div>
+      <div><div class="sname">Machine Learning</div><div class="slevel">intermediário</div><div class="sbar"><div class="sfill" style="width:72%;background:var(--purple);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">🔁</div>
+      <div><div class="sname">CI/CD · Docker</div><div class="slevel">intermediário</div><div class="sbar"><div class="sfill" style="width:68%;background:var(--text-mid);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">📐</div>
+      <div><div class="sname">Modelagem / DWH</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:90%;background:var(--green);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">⚡</div>
+      <div><div class="sname">Power Automate</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:80%;background:var(--amber);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">🐙</div>
+      <div><div class="sname">Git / GitHub</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:88%;background:var(--text-mid);"></div></div></div>
+    </div>
+    <div class="stack-item">
+      <div class="si">🏗️</div>
+      <div><div class="sname">Arquitetura Cloud</div><div class="slevel">avançado</div><div class="sbar"><div class="sfill" style="width:86%;background:var(--cyan);"></div></div></div>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ABOUT -->
+<!-- ══ ABOUT ══ -->
 <section id="about">
-  <p class="section-label">sobre</p>
+  <p class="sl">sobre</p>
   <h2>whoami</h2>
 
   <div class="terminal fade-in">
     <div class="t-bar">
       <div class="dot dr"></div><div class="dot da"></div><div class="dot dg"></div>
-      <div class="t-title">waltergonzaga — bash — 80×24</div>
+      <div class="t-ttl">waltergonzaga — bash — 80×24</div>
     </div>
     <div class="t-body">
-      <span class="tl"><span class="tp">❯</span> <span class="tcmd">cat profile.json</span></span>
-      <span class="tout">{</span>
-      <span class="tout">&nbsp;&nbsp;<span class="tk">"nome"</span>: <span class="tv">"Walter Gonzaga"</span>,</span>
-      <span class="tout">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Data Engineer"</span>,</span>
-      <span class="tout">&nbsp;&nbsp;<span class="tk">"foco"</span>: <span class="tv">"Azure · dbt · Pipelines · Analytics"</span>,</span>
-      <span class="tout">&nbsp;&nbsp;<span class="tk">"empresas"</span>: <span class="tv">["Allianz","Nestlé","Ingredion","Ethimos","Buonny"]</span>,</span>
-      <span class="tout">&nbsp;&nbsp;<span class="tk">"github"</span>: <span class="tv">"github.com/Walterbiel"</span></span>
-      <span class="tout">}</span>
+      <span class="tl"><span class="tp">❯</span> <span class="tcm">cat profile.json</span></span>
+      <span class="to">{</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"nome"</span>: <span class="tv">"Walter Gonzaga"</span>,</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Data Engineer &amp; Analytics Specialist"</span>,</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"empresa"</span>: <span class="tv">"Allianz + WGG Digital Solutions (founder)"</span>,</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"idiomas"</span>: <span class="tv">["Português (nativo)", "Inglês (fluente)", "Espanhol (profissional)"]</span>,</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"formacao"</span>: <span class="tv">"Data Eng &amp; Architecture · XP Educação (2025)"</span>,</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"contato"</span>: <span class="tv">"linkedin.com/in/waltergonzaga"</span>,</span>
+      <span class="to">&nbsp;&nbsp;<span class="tk">"site"</span>: <span class="tv">"wggsolutions.com"</span></span>
+      <span class="to">}</span>
       <br>
-      <span class="tl"><span class="tp">❯</span> <span class="tcmd">cat about.txt</span></span>
-      <span class="tout tcm"># Engenheiro de dados com foco em cloud Azure.</span>
-      <span class="tout tcm"># Construo pipelines confiáveis que movem e</span>
-      <span class="tout tcm"># transformam dados em larga escala.</span>
-      <span class="tout tcm"># Experiência em multinacionais e fintechs —</span>
-      <span class="tout tcm"># do ETL ao modelo analítico final.</span>
+      <span class="tl"><span class="tp">❯</span> <span class="tcm">cat about.txt</span></span>
+      <span class="to tcmt"># Profissional de dados com perfil ágil e inovador.</span>
+      <span class="to tcmt"># Construo pipelines robustos, modelos analíticos</span>
+      <span class="to tcmt"># e soluções de IA que geram valor real de negócio.</span>
+      <span class="to tcmt"># Experiência em multinacionais globais, fintechs</span>
+      <span class="to tcmt"># e empreendedorismo — do ETL ao modelo final.</span>
       <br>
-      <span class="tl"><span class="tp">❯</span> <span class="tcm tcmd">█</span></span>
+      <span class="tl"><span class="tp">❯</span> <span class="tcmt tcm">█</span></span>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- LINKS -->
+<!-- ══ LINKS ══ -->
 <section id="links">
-  <p class="section-label">links</p>
+  <p class="sl">links</p>
   <h2>Páginas &amp; Projetos</h2>
-  <p class="section-sub">GitHub, GitHub Pages de projetos e outras plataformas.</p>
+  <p class="ssub">GitHub, GitHub Pages, LinkedIn e empresa.</p>
 
   <div class="links-grid fade-in">
     <a href="https://github.com/Walterbiel" target="_blank" class="link-card">
       <span class="le">🐙</span>
       <div><div class="ln">GitHub</div><div class="lu">github.com/Walterbiel</div></div>
     </a>
-    <a href="https://walterbiel.github.io/projeto_pratico_01_manual_eng_de_dados" target="_blank" class="link-card">
-      <span class="le">📦</span>
-      <div><div class="ln">Projeto 01 — Eng. Dados</div><div class="lu">walterbiel.github.io/projeto...</div></div>
+    <a href="https://www.linkedin.com/in/waltergonzaga" target="_blank" class="link-card">
+      <span class="le">💼</span>
+      <div><div class="ln">LinkedIn</div><div class="lu">linkedin.com/in/waltergonzaga</div></div>
     </a>
-    <a href="#" class="link-card" style="opacity:.35;pointer-events:none;">
+    <a href="https://www.wggsolutions.com" target="_blank" class="link-card">
+      <span class="le">🏢</span>
+      <div><div class="ln">WGG Digital Solutions</div><div class="lu">wggsolutions.com</div></div>
+    </a>
+    <a href="https://walterbiel.github.io/RetailCorp-Corporate-Data-Warehouse/" target="_blank" class="link-card">
+      <span class="le">🏪</span>
+      <div><div class="ln">RetailCorp DWH</div><div class="lu">walterbiel.github.io/RetailCorp...</div></div>
+    </a>
+    <a href="#" class="link-card" style="opacity:.3;pointer-events:none;">
       <span class="le">🔗</span>
       <div><div class="ln">Próximo projeto</div><div class="lu">em breve</div></div>
     </a>
-    <a href="#" class="link-card" style="opacity:.35;pointer-events:none;">
+    <a href="#" class="link-card" style="opacity:.3;pointer-events:none;">
       <span class="le">🔗</span>
       <div><div class="ln">Próximo projeto</div><div class="lu">em breve</div></div>
     </a>
@@ -548,7 +692,7 @@
 <script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.07 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
 
