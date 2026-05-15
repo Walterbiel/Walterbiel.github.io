@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walter Gonzaga — Engenheiro de Dados</title>
+  <meta name="description" content="Portfólio profissional de Walter Gonzaga — Engenheiro e Arquiteto de Dados especializado em pipelines escaláveis e arquiteturas modernas de dados." />
+
+  <!-- Google Fonts: Display + Body pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons (CDN, no complex deps) -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       CURSOR GLOW (decorativo)
+  ═══════════════════════════════════════════════ -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       GRID OVERLAY (fundo tecnológico)
+  ═══════════════════════════════════════════════ -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <!-- Logo / monograma -->
+      <a href="#home" class="nav-logo" aria-label="Walter Gonzaga">
+        <span class="logo-bracket">[</span>WG<span class="logo-bracket">]</span>
+      </a>
+
+      <!-- Links de navegação -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre" class="nav-link">sobre</a></li>
+        <li><a href="#tecnologias" class="nav-link">stack</a></li>
+        <li><a href="#projetos" class="nav-link">projetos</a></li>
+        <li><a href="#contato" class="nav-link">contato</a></li>
+      </ul>
+
+      <!-- CTA + hamburger -->
+      <div class="nav-actions">
+        <a href="https://github.com/Walterbiel" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          <i class="ph ph-github-logo"></i> GitHub
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+
+    <!-- Orbs decorativos de fundo -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+
+      <!-- Badge de status -->
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Disponível para projetos</span>
+      </div>
+
+      <!-- Nome principal -->
+      <h1 class="hero-name reveal reveal-delay-1">
+        <span class="name-line">Walter</span>
+        <span class="name-line name-accent">Gonzaga</span>
+      </h1>
+
+      <!-- Título com efeito de digitação -->
+      <div class="hero-title reveal reveal-delay-2">
+        <span class="title-prefix">// </span>
+        <span class="typed-text" id="typedText"></span>
+        <span class="typed-cursor">|</span>
+      </div>
+
+      <!-- Descrição -->
+      <p class="hero-desc reveal reveal-delay-3">
+        Arquiteturas de dados modernas, pipelines escaláveis e soluções analíticas
+        orientadas à performance. Do bronze ao ouro — cada camada importa.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas reveal reveal-delay-4">
+        <a href="#projetos" class="btn btn-primary">
+          <i class="ph ph-folder-open"></i>
+          Ver projetos
+        </a>
+        <a href="#contato" class="btn btn-outline">
+          <i class="ph ph-paper-plane-tilt"></i>
+          Entrar em contato
+        </a>
+      </div>
+
+      <!-- Stats rápidos -->
+      <div class="hero-stats reveal reveal-delay-5">
+        <div class="stat-item">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">anos de experiência</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">projetos open source</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">1k+</span>
+          <span class="stat-label">alunos na comunidade</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SOBRE MIM
+  ═══════════════════════════════════════════════ -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">01 / sobre</span>
+        <h2 class="section-title">Quem sou eu</h2>
+      </div>
+
+      <div class="sobre-grid">
+
+        <!-- Texto -->
+        <div class="sobre-text reveal">
+          <p class="sobre-lead">
+            Engenheiro e Arquiteto de Dados com experiência em construir soluções
+            que transformam dados brutos em decisões inteligentes.
+          </p>
+          <p class="sobre-body">
+            Atuo desenvolvendo arquiteturas modernas de dados, automações, pipelines
+            e soluções voltadas para performance, escalabilidade e tomada de decisão
+            orientada a dados. Minha stack envolve Python, SQL, Docker, Airflow,
+            FastAPI, DBT e Azure.
+          </p>
+          <p class="sobre-body">
+            Além da atuação técnica, produzo conteúdos educacionais e lidero a
+            comunidade <strong class="text-accent">Comunidados</strong> — um espaço
+            gratuito para profissionais e entusiastas de dados.
+          </p>
+
+          <div class="sobre-links">
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="chip">
+              <i class="ph ph-youtube-logo"></i> @gonzagadosdados
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="chip">
+              <i class="ph ph-linkedin-logo"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Card de identidade -->
+        <div class="sobre-card glass reveal reveal-delay-2">
+          <div class="sobre-card-header">
+            <div class="card-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="card-filename">walter.config.json</span>
+          </div>
+          <pre class="code-block"><code><span class="json-key">{</span>
+  <span class="json-key">"nome"</span>: <span class="json-str">"Walter Gonzaga"</span>,
+  <span class="json-key">"role"</span>: <span class="json-str">"Sr. Data Architect"</span>,
+  <span class="json-key">"empresa"</span>: <span class="json-str">"Allianz Brasil"</span>,
+  <span class="json-key">"consultoria"</span>: <span class="json-str">"WGG Digital Solutions"</span>,
+  <span class="json-key">"comunidade"</span>: <span class="json-str">"Comunidados"</span>,
+  <span class="json-key">"foco"</span>: [
+    <span class="json-str">"Data Engineering"</span>,
+    <span class="json-str">"Data Architecture"</span>,
+    <span class="json-str">"Cloud & Azure"</span>,
+    <span class="json-str">"Education"</span>
+  ],
+  <span class="json-key">"open_to_work"</span>: <span class="json-bool">true</span>
+<span class="json-key">}</span></code></pre>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TECNOLOGIAS / STACK
+  ═══════════════════════════════════════════════ -->
+  <section class="tecnologias" id="tecnologias">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">02 / stack</span>
+        <h2 class="section-title">Tecnologias</h2>
+      </div>
+
+      <!-- Categorias de tecnologias -->
+      <div class="tech-categories">
+
+        <!-- Linguagens & Core -->
+        <div class="tech-category reveal">
+          <h3 class="tech-cat-title">
+            <i class="ph ph-code"></i> Linguagens & Core
+          </h3>
+          <div class="tech-grid">
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #3776ab22; color: #3776ab;">Py</span>
+              Python
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #f29111aa; color: #f29111;">SQL</span>
+              SQL
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #007396aa; color: #00b4d8;">SH</span>
+              Shell
+            </div>
+          </div>
+        </div>
+
+        <!-- Engenharia de Dados -->
+        <div class="tech-category reveal reveal-delay-1">
+          <h3 class="tech-cat-title">
+            <i class="ph ph-flow-arrow"></i> Engenharia de Dados
+          </h3>
+          <div class="tech-grid">
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #017CEE22; color: #017CEE;">AF</span>
+              Airflow
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #FF694422; color: #FF6944;">dbt</span>
+              dbt
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #e84d2222; color: #e84d22;">Sp</span>
+              Spark
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #38bdf822; color: #38bdf8;">PL</span>
+              Polars
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #15aded22; color: #15aded;">Pa</span>
+              Pandas
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #FF6B6B22; color: #FF6B6B;">DL</span>
+              Delta Lake
+            </div>
+          </div>
+        </div>
+
+        <!-- APIs & Backend -->
+        <div class="tech-category reveal reveal-delay-2">
+          <h3 class="tech-cat-title">
+            <i class="ph ph-lightning"></i> APIs & Backend
+          </h3>
+          <div class="tech-grid">
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #009688aa; color: #009688;">FA</span>
+              FastAPI
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #2563eb22; color: #2563eb;">SA</span>
+              SQLAlchemy
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #0d6e3d22; color: #2ebe75;">PG</span>
+              PostgreSQL
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #cc293422; color: #cc2934;">SS</span>
+              SQL Server
+            </div>
+          </div>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="tech-category reveal reveal-delay-3">
+          <h3 class="tech-cat-title">
+            <i class="ph ph-cloud"></i> Cloud & DevOps
+          </h3>
+          <div class="tech-grid">
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #0078D422; color: #0078D4;">Az</span>
+              Azure
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #2496ED22; color: #2496ED;">Dk</span>
+              Docker
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #2188ff22; color: #2188ff;">GA</span>
+              GitHub Actions
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #4285F422; color: #4285F4;">Sa</span>
+              Synapse
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #5c2d9122; color: #9b5fc4;">Fb</span>
+              Fabric
+            </div>
+            <div class="tech-badge">
+              <span class="tech-icon" style="background: #ff6f2222; color: #ff8c4a;">Ad</span>
+              ADLS Gen2
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PROJETOS
+  ═══════════════════════════════════════════════ -->
+  <section class="projetos" id="projetos">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">03 / projetos</span>
+        <h2 class="section-title">Open Source</h2>
+        <p class="section-desc">
+          Repositórios públicos com foco em ensino, automação e engenharia de dados aplicada.
+        </p>
+      </div>
+
+      <div class="projetos-grid">
+
+        <!-- ── Projeto 1: fastAPI_template ── -->
+        <article class="projeto-card glass reveal" data-index="01">
+          <div class="projeto-card-header">
+            <div class="projeto-num">01</div>
+            <div class="projeto-links">
+              <a href="https://github.com/Walterbiel/fastAPI_template"
+                 target="_blank"
+                 rel="noopener"
+                 class="icon-btn"
+                 aria-label="Ver no GitHub">
+                <i class="ph ph-github-logo"></i>
+              </a>
+              <a href="https://github.com/Walterbiel/fastAPI_template"
+                 target="_blank"
+                 rel="noopener"
+                 class="icon-btn"
+                 aria-label="Abrir projeto">
+                <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="projeto-body">
+            <h3 class="projeto-title">FastAPI Template</h3>
+            <p class="projeto-desc">
+              Guia prático e completo para consumo e criação de APIs com FastAPI.
+              Cobre desde a leitura de APIs externas com <code>requests</code> até
+              a construção de endpoints REST, autenticação por header, modelos
+              Pydantic e execução com Uvicorn — estrutura mental para trabalhar
+              com APIs em projetos de dados e back-end.
+            </p>
+
+            <div class="projeto-highlights">
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>Templates prontos para produção</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>Autenticação por token via Header</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>Integração com pandas e DataFrames</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-footer">
+            <div class="projeto-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Pydantic</span>
+              <span class="tag">Uvicorn</span>
+              <span class="tag">Requests</span>
+            </div>
+            <a href="https://github.com/Walterbiel/fastAPI_template"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-primary btn-sm projeto-cta">
+              <i class="ph ph-github-logo"></i> Ver repositório
+            </a>
+          </div>
+
+          <!-- Barra de linguagem -->
+          <div class="lang-bar">
+            <div class="lang-fill" style="width: 100%; background: #3776ab;" title="Python 100%"></div>
+          </div>
+        </article>
+
+        <!-- ── Projeto 2: Docker-Completo ── -->
+        <article class="projeto-card glass reveal reveal-delay-1" data-index="02">
+          <div class="projeto-card-header">
+            <div class="projeto-num">02</div>
+            <div class="projeto-links">
+              <a href="https://github.com/Walterbiel/Docker-Completo"
+                 target="_blank"
+                 rel="noopener"
+                 class="icon-btn"
+                 aria-label="Ver no GitHub">
+                <i class="ph ph-github-logo"></i>
+              </a>
+              <a href="https://github.com/Walterbiel/Docker-Completo"
+                 target="_blank"
+                 rel="noopener"
+                 class="icon-btn"
+                 aria-label="Abrir projeto">
+                <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="projeto-body">
+            <h3 class="projeto-title">Docker do Zero ao Avançado</h3>
+            <p class="projeto-desc">
+              Repositório didático completo sobre Docker — do conceito ao projeto
+              real. Oito módulos progressivos cobrindo Dockerfile, Volumes, Networks,
+              Docker Compose e boas práticas. Inclui projeto full-stack com API +
+              Banco + Frontend containerizados, referência de comandos e glossário.
+            </p>
+
+            <div class="projeto-highlights">
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>8 módulos do básico ao avançado</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>Projeto completo: API + DB + Frontend</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>Referência completa de comandos Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-footer">
+            <div class="projeto-tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Docker Compose</span>
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Nginx</span>
+            </div>
+            <a href="https://github.com/Walterbiel/Docker-Completo"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-primary btn-sm projeto-cta">
+              <i class="ph ph-github-logo"></i> Ver repositório
+            </a>
+          </div>
+
+          <!-- Barra de linguagem (Python 45, HTML 31, Dockerfile 24) -->
+          <div class="lang-bar">
+            <div class="lang-fill" style="width: 45.1%; background: #3776ab;" title="Python 45.1%"></div>
+            <div class="lang-fill" style="width: 31%; background: #e34c26;" title="HTML 31%"></div>
+            <div class="lang-fill" style="width: 23.9%; background: #2496ED;" title="Dockerfile 23.9%"></div>
+          </div>
+        </article>
+
+        <!-- ── Projeto 3: Pipelines ── -->
+        <article class="projeto-card glass reveal reveal-delay-2" data-index="03">
+          <div class="projeto-card-header">
+            <div class="projeto-num">03</div>
+            <div class="projeto-links">
+              <a href="https://github.com/Walterbiel/Pipelines-com-python-para-bancos-relacionais"
+                 target="_blank"
+                 rel="noopener"
+                 class="icon-btn"
+                 aria-label="Ver no GitHub">
+                <i class="ph ph-github-logo"></i>
+              </a>
+              <a href="https://github.com/Walterbiel/Pipelines-com-python-para-bancos-relacionais"
+                 target="_blank"
+                 rel="noopener"
+                 class="icon-btn"
+                 aria-label="Abrir projeto">
+                <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="projeto-body">
+            <h3 class="projeto-title">Pipelines Python → Bancos Relacionais</h3>
+            <p class="projeto-desc">
+              Guia prático de pipelines batch em Python para PostgreSQL e SQL Server.
+              Benchmark real com 1 milhão de linhas cobrindo seis ferramentas:
+              SQLAlchemy, Pandas, Polars, PyArrow, DLT e PyAirbyte — com análise
+              de performance e guia de decisão para cada cenário de carga de dados.
+            </p>
+
+            <div class="projeto-highlights">
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>Benchmark com 1 milhão de linhas</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>6 ferramentas comparadas lado a lado</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ph ph-check-circle"></i>
+                <span>PostgreSQL e SQL Server cobertos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-footer">
+            <div class="projeto-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Polars</span>
+              <span class="tag">PyArrow</span>
+              <span class="tag">DLT</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQL Server</span>
+            </div>
+            <a href="https://github.com/Walterbiel/Pipelines-com-python-para-bancos-relacionais"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-primary btn-sm projeto-cta">
+              <i class="ph ph-github-logo"></i> Ver repositório
+            </a>
+          </div>
+
+          <!-- Python 100% -->
+          <div class="lang-bar">
+            <div class="lang-fill" style="width: 100%; background: #3776ab;" title="Python 100%"></div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Link para todos os repositórios -->
+      <div class="projetos-more reveal">
+        <a href="https://github.com/Walterbiel" target="_blank" rel="noopener" class="btn btn-outline">
+          <i class="ph ph-github-logo"></i>
+          Ver todos os repositórios
+          <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTATO
+  ═══════════════════════════════════════════════ -->
+  <section class="contato" id="contato">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">04 / contato</span>
+        <h2 class="section-title">Vamos conversar</h2>
+        <p class="section-desc">
+          Aberto a projetos de consultoria, colaborações e oportunidades.
+        </p>
+      </div>
+
+      <div class="contato-grid">
+
+        <!-- Cards de contato -->
+        <div class="contato-cards reveal">
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contato-card glass">
+            <div class="contato-icon" style="--icon-color: #0A66C2;">
+              <i class="ph ph-linkedin-logo"></i>
+            </div>
+            <div class="contato-info">
+              <span class="contato-label">LinkedIn</span>
+              <span class="contato-value">Conecte-se comigo</span>
+            </div>
+            <i class="ph ph-arrow-up-right contato-arrow"></i>
+          </a>
+
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="contato-card glass">
+            <div class="contato-icon" style="--icon-color: #FF0000;">
+              <i class="ph ph-youtube-logo"></i>
+            </div>
+            <div class="contato-info">
+              <span class="contato-label">YouTube</span>
+              <span class="contato-value">@gonzagadosdados</span>
+            </div>
+            <i class="ph ph-arrow-up-right contato-arrow"></i>
+          </a>
+
+          <a href="https://github.com/Walterbiel" target="_blank" rel="noopener" class="contato-card glass">
+            <div class="contato-icon" style="--icon-color: #fff;">
+              <i class="ph ph-github-logo"></i>
+            </div>
+            <div class="contato-info">
+              <span class="contato-label">GitHub</span>
+              <span class="contato-value">github.com/Walterbiel</span>
+            </div>
+            <i class="ph ph-arrow-up-right contato-arrow"></i>
+          </a>
+
+        </div>
+
+        <!-- CTA de destaque -->
+        <div class="contato-cta glass reveal reveal-delay-2">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <i class="ph ph-rocket-launch cta-icon"></i>
+          <h3 class="cta-title">Tem um projeto em mente?</h3>
+          <p class="cta-desc">
+            Arquitetura de dados, pipelines, consultoria em Azure ou conteúdo
+            educacional — vamos construir algo incrível juntos.
+          </p>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="ph ph-paper-plane-tilt"></i>
+            Enviar mensagem
+          </a>
+          <div class="cta-community">
+            <p>Comunidade gratuita de dados:</p>
+            <a href="https://chat.whatsapp.com/D1moD4HW4M882rFRaQA02H"
+               target="_blank" rel="noopener" class="chip chip-whatsapp">
+              <i class="ph ph-whatsapp-logo"></i>
+              Comunidados no WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="logo-bracket">[</span>WG<span class="logo-bracket">]</span>
+          <p class="footer-tagline">Dados com propósito.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegação do rodapé">
+          <a href="#sobre">sobre</a>
+          <a href="#tecnologias">stack</a>
+          <a href="#projetos">projetos</a>
+          <a href="#contato">contato</a>
+        </nav>
+
+        <div class="footer-social">
+          <a href="https://github.com/Walterbiel" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="ph ph-github-logo"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="ph ph-linkedin-logo"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="ph ph-youtube-logo"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Walter Gonzaga — Construído com ♥ e dados.</p>
+        <p class="footer-stack">HTML · CSS · JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
